@@ -1,0 +1,25 @@
+# Wersja Docera
+version: '3'
+
+# Sekcja, w której definujemy serwisy, których konfiguracje tworzyliśmy w pliku docker
+services:
+  web:
+    build:
+      # Z ktorego miejsca odczytać ściężkę "dockerfile"
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/app/
+
+# Linkuje usługę php z web.
+    links:
+      - php
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - .:/app/
