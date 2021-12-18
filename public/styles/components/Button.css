@@ -1,0 +1,12 @@
+/* || All buttons that have text values should look the same.*/
+
+.Button {
+    outline: none;
+    border: solid 1px var(--grey);
+    border-radius: 1rem;
+
+    padding: 0.25rem 1.1rem;
+
+    font-size: 1rem;
+}
+

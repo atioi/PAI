@@ -1,0 +1,24 @@
+@import "../components/Form.css";
+
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    padding: 0 2rem;
+}
+
+Section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+Section h2 {
+    font-weight: lighter;
+    font-size: 2rem;
+}
+
+

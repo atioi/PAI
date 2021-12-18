@@ -1,0 +1,16 @@
+@import "TextInput.css";
+@import "Label.css";
+
+
+.Form {
+    text-align: center;
+    width: min-content;
+}
+
+.Form div {
+    margin: 0.5rem 0;
+}
+
+.Form > input {
+    margin: 1rem 0;
+}

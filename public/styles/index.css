@@ -1,0 +1,39 @@
+/* This file define general styles appended to all pages.*/
+
+/* || Other Components' styles imports. */
+@import "components/Button.css";
+@import "components/Header.css";
+
+/* || Fonts: */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,700&display=swap');
+
+:root {
+
+
+    --red: #E50000;
+    --light-green: #50FF90;
+    --light-grey: #AAAAAA;
+    --grey: #707070;
+    --light-black: #2D2D2D;
+
+    --facebook-blue: #4267B2;
+    --google-red: #DB4437;
+    --instagram-black: #000000;
+
+}
+
+html {
+    /* Do not change mindlessly, because REM measure use it. */
+    font-size: 20px;
+}
+
+* {
+    /* All fonts' default color is --light-black. */
+    color: var(--light-black);
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+}
+
