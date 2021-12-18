@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./public/styles/index.css"/>
+    <link rel="stylesheet" type="text/css" href="./public/styles/root.css"/>
     <link rel="stylesheet" type="text/css" href="./public/styles/desktop/register.css"/>
 
     <title>Freely</title>
@@ -16,7 +16,7 @@
     </header>
 </nav>
 
-<section>
+<main>
     <h2> Create Account</h2>
 
     <form class="Form" action="/register" method="POST">
@@ -53,7 +53,7 @@
         <input class="Button" value="Sign Up" type="submit">
 
     </form>
-</section>
+</main>
 
 </body>
 </html>

@@ -1,4 +1,5 @@
 @import "../components/Form.css";
+@import "../components/Header.css";
 
 
 body {
@@ -10,13 +11,13 @@ nav {
     padding: 0 2rem;
 }
 
-Section {
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-Section h2 {
+main h2 {
     font-weight: lighter;
     font-size: 2rem;
 }

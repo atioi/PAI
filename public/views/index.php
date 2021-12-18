@@ -3,17 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./public/styles/index.css"/>
+    <link rel="stylesheet" type="text/css" href="./public/styles/root.css"/>
+    <link rel="stylesheet" type="text/css" href="./public/styles/desktop/index.css"/>
+
     <title>Freely</title>
 </head>
 <body>
 
 
-<h1 class="Header"> Freely </h1>
-<a href="/login">login</a> or <a href="/register">register</a>
+<nav class="Navigation">
+    <header>
+        <h1 class="Header"> Freely </h1>
+    </header>
 
-<!--TODO: Add automatically rendering elements from database. -->
+</nav>
+<main>
+    <section>
+        <!--TODO: Add automatically rendering elements from database. -->
+
+
+    </section>
+</main>
+<footer>
+
+</footer>
 
 
 </body>
 </html>
+
