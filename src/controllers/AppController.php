@@ -4,7 +4,7 @@ class AppController
 {
     protected function render($view = null)
     {
-        $path = './public/views/' . $view . '.html';
+        $path = './public/views/' . $view . '.php';
         $output = '404';
 
         if (file_exists($path)) {
@@ -14,7 +14,6 @@ class AppController
         }
 
         print $output;
-
     }
 
 }
