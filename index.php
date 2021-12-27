@@ -19,6 +19,8 @@ $method = strtolower($_SERVER['REQUEST_METHOD']);
 Routing::get('', "DefaultController");
 Routing::get('login', "DefaultController");
 Routing::get('register', "DefaultController");
+Routing::get('upload', "DefaultController");
+Routing::get('dashboard', "DefaultController");
 
 
 # Post actions:

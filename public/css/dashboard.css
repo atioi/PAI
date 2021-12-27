@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+.Dashboard {
+    width: 100%;
+    min-width: min-content;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.Dashboard-Panel {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* || Left Panel: */
+
+.Portrait-Frame {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.Portrait {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.Portrait-Title {
+    margin: 2rem;
+    font-weight: lighter;
+    font-size: 2rem;
+}
+
+.Panel-Left:first-child div {
+    text-align: center;
+}
+
+
+/* || Right panel: */
+
+.Panel-Right {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Dashboard-Option {
+    align-items: center;
+}
+
+.Dashboard-Option img {
+    margin: 2.5rem;
+    transform: scale(2);
+}
