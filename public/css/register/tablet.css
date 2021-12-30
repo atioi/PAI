@@ -1,0 +1,28 @@
+* {
+    font-size: 15px;
+}
+
+main {
+    margin-top: 8rem;
+    margin-bottom: 5rem;
+}
+
+.Footer-Heading-Anchor {
+    font-size: 3rem;
+}
+
+.Footer-Right-Panel h3 {
+    font-size: 2.5rem;
+}
+
+.Footer-Right-Panel img {
+    transform: scale(0.7);
+}
+
+.Footer-Right-Panel {
+    padding-top: 0;
+}
+
+.Footer-Nav-Container {
+    margin-top: 0;
+}

@@ -31,17 +31,9 @@ class DefaultController extends AppController
         $this->render('upload');
     }
 
-    public function item($id)
+    public function indev()
     {
-
-    }
-
-    public function dashboard()
-    {
-        if (isset($_COOKIE))
-            $this->render('dashboard');
-        else
-            $this->render('login');
+        $this->render('dev-info');
     }
 
 }

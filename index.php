@@ -21,6 +21,7 @@ Routing::get('login', "DefaultController");
 Routing::get('register', "DefaultController");
 Routing::get('upload', "DefaultController");
 Routing::get('dashboard', "DefaultController");
+Routing::get('indev', "DefaultController");
 
 
 # Post actions:

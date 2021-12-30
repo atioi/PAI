@@ -36,7 +36,7 @@ class SecurityController extends AppController
         $cookie_value = '123';
         setcookie($cookie_name, $cookie_value, time() + (86400 * 30), '/'); # Expiration time - one day.
 
-        if(isset($_COOKIE['uid']))
+        if (isset($_COOKIE['uid']))
             echo "Cookies are set";
 
 
@@ -48,34 +48,35 @@ class SecurityController extends AppController
     public function register()
     {
 
-        $name = $_POST['name'];
-        $surname = $_POST['surname'];
-        $email = $_POST['email'];
 
-        # FIXME: Generate salt automatically.
-        $salt = '321dsad21321dsad21321dsa2143qdsad13edsad21321dsad213e21dwa';
-        $password = password_hash($_POST['password'], PASSWORD_BCRYPT, array('salt' => $salt));
-        $passwordConfirmation = password_hash($_POST['passwordConfirmation'], PASSWORD_BCRYPT, array('salt' => $salt));
-
-
-        /*
-         * If something goes wrong user is informed about the errors that occurred.
-         * */
-        try {
-            $this->isUniqueEmail($email);
-            $this->areEqualsPasswords($password, $passwordConfirmation);
-            $this->isStrongPassword($password);
-        } catch (Exception $e) {
-            $this->render('register', ['message' => $e->getMessage()]);
-            exit();
-        }
-
-
-        $userRepository = new UserRepository();
-        $userRepository->saveUser(new User($name, $surname, $email, $password, $salt));
-
-        # When the user is saved to the database then the register template is rendered and the user is asked to confirm an email.
-        $this->render('register', ['message' => 'We send email to you. Pleas confirm it..']);
+//        $name = $_POST['name'];
+//        $surname = $_POST['surname'];
+//        $email = $_POST['email'];
+//
+//        # FIXME: Generate salt automatically.
+//        $salt = '321dsad21321dsad21321dsa2143qdsad13edsad21321dsad213e21dwa';
+//        $password = password_hash($_POST['password'], PASSWORD_BCRYPT, array('salt' => $salt));
+//        $passwordConfirmation = password_hash($_POST['passwordConfirmation'], PASSWORD_BCRYPT, array('salt' => $salt));
+//
+//
+//        /*
+//         * If something goes wrong user is informed about the errors that occurred.
+//         * */
+//        try {
+//            $this->isUniqueEmail($email);
+//            $this->areEqualsPasswords($password, $passwordConfirmation);
+//            $this->isStrongPassword($password);
+//        } catch (Exception $e) {
+//            $this->render('register', ['message' => $e->getMessage()]);
+//            exit();
+//        }
+        $this->render('register', ['color' => "red", 'message' => "Email is already in use "]);
+//
+//        $userRepository = new UserRepository();
+//        $userRepository->saveUser(new User($name, $surname, $email, $password, $salt));
+//
+//        # When the user is saved to the database then the register template is rendered and the user is asked to confirm an email.
+//        $this->render('register', ['message' => 'We send email to you. Pleas confirm it..']);
     }
 
 

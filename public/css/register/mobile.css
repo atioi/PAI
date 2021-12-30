@@ -1,0 +1,70 @@
+/*
+    Mobile version:
+    <link rel="stylesheet" type="text/css" href="/public/css/register/mobile.css" media="(max-width: 640)"/>
+*/
+
+
+* {
+    font-size: 9px;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    max-height: 100vh;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(206, 206, 206, 0.1);
+    justify-content: space-between;
+
+}
+
+main {
+    /*margin-top: 4rem;*/
+    /*margin-bottom: 4rem;*/
+    /*padding-top: 10rem ;*/
+    /*padding-bottom: 10rem;*/
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+
+}
+
+footer h1 {
+    display: none;
+}
+
+.Footer-Right-Panel {
+    display: none;
+}
+
+footer div {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+
+.Footer-Nav-Container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 2rem 0 0 0 ;
+
+}
+
+ul {
+    padding: 0;
+    margin: 1rem;
+}
+
+footer {
+    border-top: 0.01rem solid rgba(206, 206, 206, 0.3);
+    margin-bottom: 0;
+    min-height: max-content;
+}
