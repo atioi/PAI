@@ -6,9 +6,6 @@
     <link rel="stylesheet" type="text/css" href="/public/css/index.css">
     <title>Freely</title>
 
-
-
-
 </head>
 <body>
 <nav>
