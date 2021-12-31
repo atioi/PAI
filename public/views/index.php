@@ -20,21 +20,6 @@
 <main>
 
 
-    <!-- Prototyp produktu -->
-    <?php foreach ($products as $product): ?>
-    <div class="Product">
-        <div class="ProductBar">
-            <h3 class="ProductHeader"><?= $product->getTitle()?></h3>
-            <div class="SubProductBar">
-                <div class="Localization">
-                    <img src="./public/icons/location_icon.svg" alt="Location"/>
-                    <span>28 km</span>
-                </div>
-                <img src="./public/icons/info_icon.svg" alt="Info">
-            </div>
-        </div>
-    </div>
-    <?php endforeach; ?>
 
 
 </main>

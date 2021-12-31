@@ -12,7 +12,7 @@
     <!-- Tablet css-->
     <link rel="stylesheet" type="text/css" href="/public/css/register/tablet.css" media="(max-width: 900px)"/>
     <!-- Mobile css -->
-    <link rel="stylesheet" type="text/css" href="/public/css/register/mobile.css" media="(max-width: 600px)"/>
+    <link rel="stylesheet" type="text/css" href="/public/css/register/mobile.css" media="(max-width: 440px)"/>
 </head>
 <body>
 
@@ -63,10 +63,15 @@
 </main>
 
 <footer>
+
+
     <h2 class="Footer-Heading">
         <a class="Footer-Heading-Anchor" href="/">Freely</a>
     </h2>
+
     <div>
+
+        <!-- Footer navigation: -->
         <div class="Footer-Nav-Container">
             <ul>
                 <li><a href="/indev">About Us</a></li>
@@ -80,12 +85,15 @@
                 <li><a href="/indev">Privacy Policy</a></li>
                 <li><a href="/indev">Term of Use</a></li>
             </ul>
-
-            <div class="Footer-Right-Panel">
-                <img src="/public/icons/bulb.svg" alt="Bulb">
-                <h3>Make the Earth <br> better.</h3>
-            </div>
         </div>
+
+        <!-- Footer image about saving Earth. -->
+        <div class="Footer-Right-Panel">
+            <img src="/public/icons/bulb.svg" alt="Bulb">
+            <h3>Make the Earth <br> better.</h3>
+        </div>
+    </div>
+
 </footer>
 
 </body>

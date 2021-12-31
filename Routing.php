@@ -1,6 +1,7 @@
 <?php
 
-require './src/controllers/SecurityController.php';
+require './src/controllers/Authorization/LoginController.php';
+require './src/controllers/Authorization/RegisterController.php';
 require './src/controllers/DefaultController.php';
 
 

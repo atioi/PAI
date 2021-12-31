@@ -2,33 +2,23 @@
 
 class User
 {
-    private $id;
-    private $salt;
     private $name;
     private $surname;
     private $email;
     private $password;
+    private $id;
 
-    function __construct($name, $surname, $email, $password, $salt = null, $id = null)
+    public function __construct($name, $surname, $email, $password, $id = null)
     {
-        $this->id = $id;
-        $this->salt = $salt;
         $this->name = $name;
         $this->surname = $surname;
         $this->email = $email;
         $this->password = $password;
+        $this->id = $id;
     }
 
     /**
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @return string
+     * @return mixed
      */
     public function getName()
     {
@@ -36,7 +26,23 @@ class User
     }
 
     /**
-     * @return string
+     * @return mixed
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return mixed
      */
     public function getPassword()
     {
@@ -44,16 +50,13 @@ class User
     }
 
     /**
-     * @return string
+     * @return mixed|null
      */
-    public function getSurname()
+    public function getId()
     {
-        return $this->surname;
+        return $this->id;
     }
 
-
-    public function getSalt()
-    {
-        return $this->salt;
-    }
 }
+
+
