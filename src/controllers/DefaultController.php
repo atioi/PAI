@@ -10,11 +10,8 @@ class DefaultController extends AppController
 
     public function index()
     {
-
         session_start();
-        echo var_dump($_SESSION);
         $this->render('index');
-
     }
 
     public function login($message = null)
@@ -31,13 +28,22 @@ class DefaultController extends AppController
 
     public function upload()
     {
-        $this->render('upload');
+        $this->render('uploads');
     }
 
     public function dashboard()
     {
+        
         session_start();
-        if (!$_SESSION['uid']) ; # TODO: Render just standard file, in other way user dedicate.
+        if ($_SESSION['uid'] != null) {
+            $userRepository = new UserRepository();
+            try {
+                $user = $userRepository->getUserByID($_SESSION['uid']);
+                $this->render('dashboard', ['name' => $user->getName(), 'surname' => $user->getSurname()]);
+            } catch (Exception $e) {
+
+            }
+        }
 
     }
 

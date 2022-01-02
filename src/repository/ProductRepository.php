@@ -22,9 +22,14 @@ class ProductRepository extends Repository
         return $result;
     }
 
-    public function getProductsByLocalization()
-    {
 
+    public function save($user)
+    {
+        $stmt = $this->database->connect()->prepare('INSERT INTO product (title) VALUES (?)');
+        $stmt->execute([
+           $user
+        ]);
     }
+
 
 }

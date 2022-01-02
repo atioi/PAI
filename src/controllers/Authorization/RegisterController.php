@@ -31,7 +31,7 @@ class RegisterController extends AppController
         }
 
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT, array('cost' => 9));
-        $user = new User_($name, $surname, $email, $password);
+        $user = new User($name, $surname, $email, $password);
 
         $userRepository = new UserRepository();
         $userRepository->save($user);

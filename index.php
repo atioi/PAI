@@ -4,6 +4,7 @@ require 'Routing.php';
 require_once './src/controllers/DefaultController.php';
 
 
+
 # $_SERVER  is global variable available on server.
 
 $path = trim($_SERVER['REQUEST_URI'], '/');
@@ -19,15 +20,17 @@ $method = strtolower($_SERVER['REQUEST_METHOD']);
 Routing::get('', "DefaultController");
 Routing::get('login', "DefaultController");
 Routing::get('register', "DefaultController");
-Routing::get('upload', "DefaultController");
+Routing::get('uploads', "DefaultController");
 Routing::get('dashboard', "DefaultController");
 Routing::get('hello', "DefaultController");
 Routing::get('indev', "DefaultController");
+Routing::get('portrait', "UploadController");
 
 
 # Post actions:
 Routing::post('login', "LoginController");
 Routing::post('register', "RegisterController");
+Routing::post('portrait', "UploadController");
 
 
 # Runs appropriate controller from ./controllers

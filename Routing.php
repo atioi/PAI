@@ -3,6 +3,7 @@
 require './src/controllers/Authorization/LoginController.php';
 require './src/controllers/Authorization/RegisterController.php';
 require './src/controllers/DefaultController.php';
+require './src/controllers/Authorized/UploadController.php';
 
 
 #TODO: Make Routing be less available for other classes and files!

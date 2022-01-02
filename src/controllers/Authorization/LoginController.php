@@ -17,7 +17,7 @@ class LoginController extends AppController
         $userRepository = new UserRepository();
 
         try {
-            $user = $userRepository->getUser($email);
+            $user = $userRepository->getUserByEmail($email);
             $this->isValidPassword($password, $user->getPassword());
         } catch (Exception $e) {
             $this->render('login', ['message' => $e->getMessage()]);
