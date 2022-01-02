@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./public/css/dashboard/dashboard.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Freely</title>
 </head>
 <body>
 
 <nav>
-    <a href="/">X</a>
+    <a href="/">
+        <img src="./public/icons/back.svg">
+    </a>
 </nav>
 <div class="Dashboard">
 
@@ -24,9 +27,17 @@
 
     </div>
     <div id="panel02" class="Dashboard-Panel">
+        <a>
+            koszyk
+        </a>
+        <div>
+            dsadsadsa
+        </div>
+
+
         <a href="/settings">settings</a>
         <a href="/add">add</a>
-        <a href="/logout">logout</a>
+        <span class='logout'></span>
     </div>
 </div>
 

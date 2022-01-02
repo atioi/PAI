@@ -21,7 +21,7 @@ Routing::get('', "DefaultController");
 Routing::get('login', "DefaultController");
 Routing::get('register', "DefaultController");
 Routing::get('uploads', "DefaultController");
-Routing::get('dashboard', "DefaultController");
+Routing::get('dashboard', "DashboardController");
 Routing::get('hello', "DefaultController");
 Routing::get('indev', "DefaultController");
 Routing::get('portrait', "UploadController");
@@ -30,7 +30,9 @@ Routing::get('portrait', "UploadController");
 # Post actions:
 Routing::post('login', "LoginController");
 Routing::post('register', "RegisterController");
-Routing::post('portrait', "UploadController");
+Routing::post('portrait', "DashboardController");
+
+
 
 
 # Runs appropriate controller from ./controllers

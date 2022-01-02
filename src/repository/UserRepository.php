@@ -93,4 +93,21 @@ class UserRepository extends Repository
             $avatar_id
         ]);
     }
+
+    /**
+     * @throws Exception
+     */
+    public function getUserAvatar($user_id)
+    {
+
+        $stmt = $this->database->connect()->prepare('SELECT * FROM user_avatar WHERE user_id=:user_id');
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
+        $stmt->execute();
+
+
+        if ($stmt->fetch(PDO::FETCH_ASSOC) == null)
+            throw new Exception('No avatar found.');
+
+
+    }
 }

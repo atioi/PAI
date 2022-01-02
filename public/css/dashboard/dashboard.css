@@ -78,7 +78,7 @@ nav {
     height: 100%;
 }
 
-#portrait_input{
+#portrait_input {
     display: none;
 }
 
@@ -100,4 +100,11 @@ nav {
 
 #portrait_img {
     position: relative;
+}
+
+.logout {
+    background-image: url('../../icons/back.svg');
+    display: block;
+    width: max-content;
+    height: max-content;
 }

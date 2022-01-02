@@ -31,22 +31,6 @@ class DefaultController extends AppController
         $this->render('uploads');
     }
 
-    public function dashboard()
-    {
-        
-        session_start();
-        if ($_SESSION['uid'] != null) {
-            $userRepository = new UserRepository();
-            try {
-                $user = $userRepository->getUserByID($_SESSION['uid']);
-                $this->render('dashboard', ['name' => $user->getName(), 'surname' => $user->getSurname()]);
-            } catch (Exception $e) {
-
-            }
-        }
-
-    }
-
 
     # For development purposes only. This function redirects the user to the page with information that tells the page is not built yet.
     public function indev()
