@@ -26,7 +26,8 @@ class LoginController extends AppController
 
 
         $this->setSession($user);
-        $this->redirect('', 'get');
+        header("Location: /");
+
     }
 
     private function setSession($user)

@@ -1,5 +1,8 @@
 <?php
 
+require_once './src/const/DefaultAvatars.php';
+
+
 class User
 {
     private $name;
@@ -7,6 +10,7 @@ class User
     private $email;
     private $password;
     private $id;
+    private $avatar;
 
     public function __construct($name, $surname, $email, $password, $id = null)
     {
@@ -57,6 +61,23 @@ class User
         return $this->id;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * @param mixed $avatar
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+    }
+
 }
+
 
 

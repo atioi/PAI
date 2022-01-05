@@ -89,7 +89,7 @@
 
         <!-- Footer image about saving Earth. -->
         <div class="Footer-Right-Panel">
-            <img src="/public/icons/bulb.svg" alt="Bulb">
+            <img src="/public/s/bulb.svg" alt="Bulb">
             <h3>Make the Earth <br> better.</h3>
         </div>
     </div>

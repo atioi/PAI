@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./public/css/dashboard/dashboard.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./public/icons/icons.css">
+
     <title>Freely</title>
 </head>
 <body>
 
 <nav>
     <a href="/">
-        <img src="./public/icons/back.svg">
+        back
     </a>
 </nav>
 <div class="Dashboard">
 
     <div id="panel01" class="Dashboard-Panel">
         <div id="portrait_frame" class="Portrait-Frame">
+            <img class="Avatar" src="/avatar">
             <label id="portrait_label_upload" for="portrait_input"></label>
             <input id="portrait_input" type="file" accept="image/png, image/jpg">
         </div>
@@ -27,17 +29,31 @@
 
     </div>
     <div id="panel02" class="Dashboard-Panel">
-        <a>
-            koszyk
-        </a>
-        <div>
-            dsadsadsa
-        </div>
+
+        <ul>
+            <li>
+                <a href="#cart">
+                    <span class='cart'></span>
+                </a>
+            </li>
+            <li>
+                <a href="#settings">
+                    <span class='settings'></span>
+                </a>
+            </li>
+            <li>
+                <a href="#logout">
+                    <span class='logout'></span>
+                </a>
+            </li>
+            <li>
+                <a href="#add">
+                    <span class='add'></span>
+                </a>
+            </li>
+        </ul>
 
 
-        <a href="/settings">settings</a>
-        <a href="/add">add</a>
-        <span class='logout'></span>
     </div>
 </div>
 

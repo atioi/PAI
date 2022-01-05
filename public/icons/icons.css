@@ -1,0 +1,61 @@
+/*
+
+ How to use icons:
+    Append:
+        <link rel="stylesheet" type="text/css" href="/public/icons/icons.css">
+   add span tag with font's class name that you are interested in.
+        <span class='<icon's name>'></span>
+
+ */
+
+
+.logout {
+    background: url('./svg/logout.svg') no-repeat 50% 50%;
+    background-size: 28px 28px;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+}
+
+.settings {
+    background: url('./svg/settings.svg') no-repeat 50% 50%;
+    background-size: 28px 28px;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+}
+
+.cart {
+    background: url('./svg/cart.svg') no-repeat 50% 50%;
+    background-size: 28px 28px;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+}
+
+.add {
+    background: url('./svg/add.svg') no-repeat 50% 50%;
+    background-size: 28px 28px;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+}
+
+
+.bulb {
+    --bulb-size: 2rem;
+    background: url('./svg/bulb.svg') no-repeat 50% 50%;
+    background-size: var(--bulb-size) var(--bulb-size);
+    display: inline-block;
+    min-width: var(--bulb-size);
+    min-height: var(--bulb-size);
+}
+
+.user {
+    --user-size: 2rem;
+    background: url('./svg/user.svg') no-repeat 50% 50%;
+    background-size: var(--user-size) var(--user-size);
+    display: inline-block;
+    min-width: var(--user-size);
+    min-height: var(--user-size);
+}

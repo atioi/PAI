@@ -15,7 +15,7 @@ function upload(avatar) {
     let formData = new FormData()
     formData.append('avatar', avatar);
 
-    fetch('/portrait', {
+    fetch('/avatar', {
         method: 'POST',
         body: formData
     }).then(r => {

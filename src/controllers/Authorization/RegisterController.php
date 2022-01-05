@@ -1,15 +1,22 @@
 <?php
 
-require_once './src/repository/UserRepository.php';
 require_once "./src/controllers/AppController.php";
+require_once './src/repository/UserRepository.php';
 require_once './src/models/User.php';
 
 
 class RegisterController extends AppController
 {
 
-    // Registration process code:
+    private $userRepository;
 
+    public function __construct()
+    {
+        $this->userRepository = new UserRepository();
+    }
+
+
+    # This function register users into application.
     public function register()
     {
 
@@ -21,9 +28,7 @@ class RegisterController extends AppController
 
         try {
 
-            $this->arePasswordEqual($password, $password_confirmation);
-            $this->isStrongPassword($password);
-            $this->isEmailAvailable($email);
+            $this->validateData($email, $password, $password_confirmation);
 
         } catch (Exception $e) {
             $this->render('register', ['color' => 'red', 'message' => $e->getMessage()]);
@@ -31,11 +36,20 @@ class RegisterController extends AppController
         }
 
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT, array('cost' => 9));
-        $user = new User($name, $surname, $email, $password);
+        $user = new User($name, $surname, $email, $password, $password_confirmation);
 
-        $userRepository = new UserRepository();
-        $userRepository->save($user);
+        $this->userRepository->save($user);
 
+    }
+
+    /**
+     * @throws Exception
+     */
+    private function validateData($email, $password, $password_confirmation)
+    {
+        $this->arePasswordEqual($password, $password_confirmation);
+        $this->isStrongPassword($password);
+        $this->isEmailAvailable($email);
     }
 
     /**
@@ -75,7 +89,6 @@ class RegisterController extends AppController
             throw new Exception('Password should contain at least one letter.');
     }
 
-
     /**
      * @throws Exception
      */
@@ -84,7 +97,6 @@ class RegisterController extends AppController
         if (!preg_match("#[0-9]+#", $password))
             throw new Exception('Password should contain at least one number.');
     }
-
 
     /**
      * @throws Exception

@@ -3,46 +3,40 @@
 require './src/controllers/Authorization/LoginController.php';
 require './src/controllers/Authorization/RegisterController.php';
 require './src/controllers/DefaultController.php';
-require './src/controllers/Authorized/UploadController.php';
 require './src/controllers/DashboardController.php';
-
+require './src/controllers/UserController.php';
 
 #TODO: Make Routing be less available for other classes and files!
+
 
 class  Routing
 {
     # Nobody should have permission to get into $routes variable! It is risky, and probability that error occurs highly rises.
     private static $routes;
-    # $rootAction is an action that runs when url looks like this "/" so action is not define in it.
-    private static $rootAction = 'index';
 
-    public static function get($action, $controller)
+    public static function get($endpoint, $controller, $action)
     {
-        self::$routes['get'][$action] = $controller;
+        self::$routes['get'][$endpoint] = ['name' => $controller, 'action' => $action];
     }
 
-    public static function post($action, $controller)
+    public static function post($endpoint, $controller, $action)
     {
-        self::$routes['post'][$action] = $controller;
-    }
-
-    public static function setRootAction($action)
-    {
-        self::$rootAction = $action;
+        self::$routes['post'][$endpoint] = ['name' => $controller, 'action' => $action];
     }
 
     public static function run($url, $method)
     {
 
-        $action = explode("/", $url)[0];
+        $endpoint = explode("/", $url)[0];
 
-        if (!array_key_exists($action, self::$routes[$method]))
+        if (!array_key_exists($endpoint, self::$routes[$method]))
             die("Wrong url!");
 
-        $controller = new self::$routes[$method][$action];
-        $action = $action ?: self::$rootAction;
-        $controller->$action();
+        $controller = self::$routes[$method][$endpoint];
+
+        $object = new $controller['name'];
+        $action = $controller['action'];
+        $object->$action();
 
     }
-
 }
