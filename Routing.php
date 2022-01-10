@@ -4,7 +4,8 @@ require './src/controllers/Authorization/LoginController.php';
 require './src/controllers/Authorization/RegisterController.php';
 require './src/controllers/DefaultController.php';
 require './src/controllers/DashboardController.php';
-require './src/controllers/UserController.php';
+require_once './src/controllers/AvatarController.php';
+require_once './src/controllers/ItemController.php';
 
 #TODO: Make Routing be less available for other classes and files!
 

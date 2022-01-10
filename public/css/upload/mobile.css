@@ -1,0 +1,21 @@
+/* Phone style */
+
+* {
+    font-size: 10px;
+}
+
+
+body {
+    overflow: hidden;
+}
+
+nav {
+    display: none;
+}
+
+footer {
+    display: none;
+}
+
+
+

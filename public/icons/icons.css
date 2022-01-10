@@ -59,3 +59,12 @@
     min-width: var(--user-size);
     min-height: var(--user-size);
 }
+
+.add_circle {
+    --add-circle-size: 2rem;
+    background: url('svg/add_circle.svg') no-repeat 50% 50%;
+    background-size: var(--add-circle-size) var(--add-circle-size);
+    display: inline-block;
+    min-width: var(--add-circle-size);
+    min-height: var(--add-circle-size);
+}

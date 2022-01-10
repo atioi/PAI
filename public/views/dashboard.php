@@ -12,17 +12,17 @@
 
 <nav>
     <a href="/">
-        back
+        Go Shopping.
     </a>
 </nav>
 <div class="Dashboard">
 
     <div id="panel01" class="Dashboard-Panel">
         <div id="portrait_frame" class="Portrait-Frame">
-            <img class="Avatar" src="/avatar">
             <label id="portrait_label_upload" for="portrait_input"></label>
             <input id="portrait_input" type="file" accept="image/png, image/jpg">
         </div>
+
         <?php ?>
         <p><?= $name ?> <?= $surname ?> </p>
         <?php ?>
@@ -32,12 +32,12 @@
 
         <ul>
             <li>
-                <a href="#cart">
+                <a href="/cart">
                     <span class='cart'></span>
                 </a>
             </li>
             <li>
-                <a href="#settings">
+                <a href="/settings">
                     <span class='settings'></span>
                 </a>
             </li>
@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li>
-                <a href="#add">
+                <a href="/upload">
                     <span class='add'></span>
                 </a>
             </li>
@@ -57,7 +57,31 @@
     </div>
 </div>
 
-<script src="./public/scripts/dashboard.js"></script>
+<script>
+
+
+    async function getAvatar() {
+        const response = await fetch('/avatar');
+        if (response.status === 404)
+            throw new Error();
+
+        return await response.text();
+    }
+
+    getAvatar()
+        .then(path => {
+            console.log(path)
+            const frame = document.getElementById('portrait_frame');
+            const img = document.createElement('img');
+            img.src = path;
+            frame.append(img);
+        })
+        .catch(error => {
+            console.log(error)
+        });
+
+
+</script>
 
 
 </body>
