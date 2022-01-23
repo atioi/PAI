@@ -4,176 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freely</title>
-    <link rel="stylesheet" type="text/css" href="/public/icons/icons.css">
 
+    <link rel="stylesheet" type="text/css" href="/public/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/form.css">
 
-    <link rel="stylesheet" type="text/css" href="/public/css/upload/desktop.css"/>
-    <link rel="stylesheet" type="text/css" href="/public/css/upload/mobile.css" media="(max-width: 440px)"/>
-
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
 </head>
 <body>
 
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css"
+      type="text/css">
+
+
+<!-- To find out more about nav style check public/css/index.css-->
+<nav class="Navigation">
+    <header>
+        <h1>
+            <a href="/">Freely</a>
+        </h1>
+    </header>
+</nav>
+
+
 <main>
+    <form id="item-uploading-form">
 
-    <form class="Form" method="POST" action="/give">
+        <h2>Place your advert</h2>
 
-        <div class="Photos-Upload-Bar">
-
-            <!-- Photo 0 -->
+        <div id="box-01">
             <div class="Frame">
                 <div>
-                    <img class="Icon" src="public/icons/svg/add_circle_black_24dp (1).svg" alt="">
-                    <label class="Photo-Label" for="photo_0"></label>
-                    <input class="Photo-Input" id="photo_0" name="photo_0" type="file" accept="image/png, image/jpeg">
+                    <img src="/public/icons/svg/add_photo.svg" alt="Click">
+                    <label for="photo-00"></label>
+                    <input id="photo-00" name="photo-00" type="file">
                 </div>
             </div>
 
-
-            <!-- Photo 1 -->
             <div class="Frame">
                 <div>
-                    <img class="Icon" src="public/icons/svg/add_circle_black_24dp (1).svg" alt="">
-                    <label class="Photo-Label" for="photo_1"></label>
-                    <input class="Photo-Input" id="photo_1" name="photo_1" type="file" accept="image/png, image/jpeg">
+                    <img src="/public/icons/svg/add_photo.svg" alt="Click">
+                    <label for="photo-01"></label>
+                    <input id="photo-01" name="photo-01" type="file">
                 </div>
             </div>
 
-
-            <!-- Photo 2 -->
             <div class="Frame">
                 <div>
-                    <img class="Icon" src="public/icons/svg/add_circle_black_24dp (1).svg" alt="">
-                    <label class="Photo-Label" for="photo_2"></label>
-                    <input class="Photo-Input" id="photo_2" name="photo_2" type="file" accept="image/png, image/jpeg">
+                    <img src="/public/icons/svg/add_photo.svg" alt="Click">
+                    <label for="photo-02"></label>
+                    <input id="photo-02" name="photo-02" type="file">
                 </div>
+
             </div>
 
-
-            <!-- Photo 3 -->
             <div class="Frame">
                 <div>
-                    <img class="Icon" src="public/icons/svg/add_circle_black_24dp (1).svg" alt="">
-                    <label class="Photo-Label" for="photo_3"></label>
-                    <input class="Photo-Input" id="photo_3" name="photo_3" type="file" accept="image/png, image/jpeg">
+                    <img src="/public/icons/svg/add_photo.svg" alt="Click">
+                    <label for="photo-03"></label>
+                    <input id="photo-03" name="photo-03" type="file">
                 </div>
             </div>
         </div>
+        <div id="box-02">
 
+            <div>
+                <label for="title"></label>
+                <input id="title" placeholder="Title" name="title" >
 
-        <!-- Localization -->
-        <label for="title"></label>
-        <input class="Text-Input" id="title" type="text" name="title" placeholder="Title" required>
+                <label for="description"></label>
+                <textarea id="description" placeholder="Description" name="description" ></textarea>
 
-        <!-- Localization -->
-        <label for="localization"></label>
-        <input class="Text-Input" id="localization" type="text" name="localization" placeholder="Localization" readonly>
+                <label for="localization"></label>
+                <input id="localization" type="text" name="localization" >
 
-        <!-- Description -->
-        <label for="description"></label>
-        <textarea class="Text-Input Text-Area" id="description" name="description" placeholder="Description" maxlength="250"></textarea>
+            </div>
 
-        <!-- FIXME: THERE IS ANOTHER DIV ABOVE.   -->
-        <input type="submit" value="Create">
-
+            <div>
+                <div id="map"></div>
+            </div>
+        </div>
+        <div id="box-03">
+            <input type="reset" value="Cancel">
+            <input type="submit" value="Submit">
+        </div>
     </form>
-
-
 </main>
 
+<!-- To find out more about the footer style check public/css/index.css-->
+<footer class="Footer">
+    <div class="Footer-Top-Bar">
+        <h2 class="Footer-Heading">
+            <a href="/">Freely</a>
+        </h2>
+    </div>
+    <div class="Footer-Bottom-Bar">
+        <div class="Footer-Navigation">
+            <ul>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#contact-us">Contact Us</a></li>
+            </ul>
+            <ul>
+                <li><a href="#collaboration">Collaboration</a></li>
+                <li><a href="#careers">Careers</a></li>
+            </ul>
+            <ul>
+                <li><a href="#help">Help</a></li>
+                <li><a href="#privacy-policy">Privacy Policy</a></li>
+            </ul>
+        </div>
 
-<script>
-
-    // Gets user localization;
-    let btn = document.getElementById('localization');
-    btn.onclick = () => {
-        navigator.geolocation.getCurrentPosition((position, error) => {
-            btn.value = `${position.coords['latitude']} , ${position.coords['longitude']}`;
-        })
-    }
-
-
-    class Filled {
-
-        ADD_ICON_PATH = 'public/icons/svg/add_circle_black_24dp (1).svg';
-
-        click(Frame) {
-            const input = Frame.getInput();
-            input.value = null;
-            const frame = Frame.getFrame();
-            frame.setAttribute('style', 'background-color: #EFEFEF;');
-            const img = Frame.getIcon();
-            img.src = this.ADD_ICON_PATH;
-            Frame.setState(new Empty());
-        }
-    }
-
-    class Empty {
-
-
-        BIN_ICON_PATH = 'public/icons/svg/delete_black_24dp.svg'
-
-        click(Frame) {
-            const input = Frame.getInput();
-            input.click();
-
-            const frame = Frame.getFrame();
-
-            input.onchange = () => {
-                const reader = new FileReader();
-
-                reader.onloadend = () => {
-                    frame.setAttribute('style', `background-image: url(${reader.result});`);
-                    const img = Frame.getIcon();
-                    img.src = this.BIN_ICON_PATH;
-                }
-
-                reader.readAsDataURL(input.files[0]);
-
-                Frame.setState(new Filled());
-
-            }
-        }
-    }
-
-    class Frame {
-
-        #state;
-        #frame;
-
-        constructor(frame) {
-            this.#state = new Empty();
-            this.#frame = frame;
-            this.#frame.addEventListener('click', this.click.bind(this))
-        }
-
-        getInput() {
-            return this.#frame.getElementsByTagName('input')[0];
-        }
-
-        getFrame() {
-            return this.#frame;
-        }
-
-        getIcon() {
-            return this.#frame.getElementsByTagName('img')[0];
-        }
-
-        click() {
-            this.#state.click(this);
-        }
-
-        setState(state) {
-            this.#state = state;
-        }
-
-    }
+        <div class="Footer-Slogan">
+            <span id="bulb" class="Bulb"></span>
+            <h3>
+                Make the Earth better.
+            </h3>
+        </div>
+    </div>
+</footer>
 
 
-    document.querySelectorAll('.Frame').forEach(construction => {
-        new Frame(construction);
-    })
+<!-- Mapbox API-->
+<script src="/public/script/Upload/mapbox.js"></script>
 
-</script>
+<script src="/public/script/Upload/uploading.js"></script>
+
+<!-- Script which lets user to upload photo. -->
+<script src="/public/script/Upload/photo.js"></script>
+
 
 </body>
 </html>

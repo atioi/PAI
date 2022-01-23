@@ -2,7 +2,6 @@
 
 require_once './src/repository/Repository.php';
 require_once './src/models/User.php';
-require_once './src/models/Avatar.php';
 
 
 class UserRepository extends Repository
@@ -40,14 +39,17 @@ class UserRepository extends Repository
      */
     public function getUserByEmail($email)
     {
-        $stmt = $this->database->connect()->prepare('SELECT * FROM users WHERE email=:email');
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+
+        $stmt = $this->prepare('SELECT * FROM users WHERE email=:email;');
+
+        $stmt->bindParam(':email', $email);
+
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user == null)
-            throw new Exception('User with given email do not exist.');
+        if (count($user) == 0)
+            throw new Exception('User does not exists!', 404);
 
         return new User(
             $user["name"],
@@ -108,7 +110,7 @@ class UserRepository extends Repository
         if (!isset($result))
             throw new Exception('Not Found', 404);
 
-        return new Avatar($result['path']);
+        return $result['path'];
     }
 
 }

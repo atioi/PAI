@@ -6,40 +6,47 @@
     <link rel="stylesheet" type="text/css" href="/public/css/index/index.css">
     <link rel="stylesheet" type="text/css" href="/public/icons/icons.css">
 
+    <link rel="stylesheet" type="text/css" href="/public/css/index.css">
     <title>Freely</title>
+
+
+    <style>
+
+
+    </style>
 
 </head>
 <body>
-<nav>
+<nav class="Navigation">
     <header>
-        <a href="/">
-            <h1 class="Heading">Freely</h1>
-        </a>
+        <h1>
+            <a href="/">
+                Freely
+            </a>
+        </h1>
     </header>
 
-    <a id="dashboard_anch" href="/dashboard">
+    <a id="dashboard_anch" class="Avatar" href="/dashboard">
+        <img id="avatar" src="<?= $avatar ?>" alt="avatar">
     </a>
 
 </nav>
 
 <main>
-    <!-- Here should be all products -->
-</main>
-
-<footer>
-
-    <div>
-
-        <h2>
-            <a href="/">
-                Freely
-            </a>
-        </h2>
+    <div id="items-container">
 
     </div>
-    <div class="Footer-div-2">
+</main>
 
-        <div>
+
+<footer class="Footer">
+    <div class="Footer-Top-Bar">
+        <h2 class="Footer-Heading">
+            <a href="/">Freely</a>
+        </h2>
+    </div>
+    <div class="Footer-Bottom-Bar">
+        <div class="Footer-Navigation">
             <ul>
                 <li><a href="#about-us">About Us</a></li>
                 <li><a href="#contact-us">Contact Us</a></li>
@@ -54,54 +61,17 @@
             </ul>
         </div>
 
-        <div class="Footer-div-2-div">
-            <span id="bulb" class="bulb"></span>
+        <div class="Footer-Slogan">
+            <span id="bulb" class="Bulb"></span>
             <h3>
                 Make the Earth better.
             </h3>
         </div>
-
     </div>
-
 </footer>
 
-<script>
-
-
-    async function getAvatar() {
-        const response = await fetch('/avatar');
-        if (response.status === 404)
-            throw new Error();
-
-        return await response.text();
-    }
-
-    getAvatar()
-        .then(path => {
-            const dashboard_anch = document.getElementById('dashboard_anch');
-            const img = document.createElement('img');
-            img.src = path;
-            img.alt = 'Dashboard';
-
-            img.classList.add('User-avatar');
-            img.id = 'avatar';
-
-            dashboard_anch.append(img);
-        })
-        .catch(error => {
-            const dashboard_anch = document.getElementById('dashboard_anch');
-            const span = document.createElement('span');
-
-            span.classList.add('user');
-            span.id = 'avatar';
-
-            dashboard_anch.append(span);
-        });
-
-
-    //TODO: Pobrać ogłoszenia z bazy danych.
-
-</script>
+<script src="/public/script/Item.js"></script>
+<script src="/public/script/fetch-items.js"></script>
 
 </body>
 </html>

@@ -1,52 +1,31 @@
 <?php
-
-require 'Routing.php';
-
-require_once './src/controllers/DefaultController.php';
-require_once './src/controllers/Authorization/LoginController.php';
-require_once './src/controllers/Authorization/RegisterController.php';
-require_once './src/controllers/AvatarController.php';
-require_once './src/controllers/ItemController.php';
-
-
-# $_SERVER  is global variable available on server.
+require_once 'Routing.php';
+require_once 'src/controllers/ItemController.php';
 
 $path = trim($_SERVER['REQUEST_URI'], '/');
 $path = parse_url($path, PHP_URL_PATH);
-$method = strtolower($_SERVER['REQUEST_METHOD']);
+$path = explode('/', $path);
 
-# If action is not appended into URL then rootAction runs.
-# The rootAction is default set to 'index' but can be changed using Routing::setRootAction method.
+$action = $path[0] == '' ? 'index' : $path[0];
 
+//
+//$ic = new ItemController();
+//$ic->items(30);
 
-# Setting root action
-$path = $path == '' ? 'index' : $path;
+// Views:
+Routing::get('index', 'ViewsController');
+Routing::get('login', 'ViewsController');
+Routing::get('dashboard', 'ViewsController');
+Routing::get('upload', 'ViewsController');
+Routing::get('cart', 'ViewsController');
+Routing::get('settings', 'ViewsController');
+Routing::get('logout', 'LoginController');
+Routing::get('items', 'ItemController');
 
-# Get actions:
-
-
-Routing::get('index', DefaultController::class, 'index');
-Routing::get('cart', DefaultController::class, 'cart');
-Routing::get('settings', DefaultController::class, 'settings');
-Routing::get('upload', DefaultController::class, 'upload');
-
-Routing::get('dashboard', DashboardController::class, 'dashboard');
-Routing::get('avatar', AvatarController::class, 'getAvatar');
-Routing::get('login', DefaultController::class, 'login');
-Routing::get('register', DefaultController::class, 'register');
-
-
-Routing::post('login', LoginController::class, 'login');
-//Routing::post('register', RegisterController::class, 'register');
-Routing::post('give', ItemController::class, 'getItem');
+// Actions:
+Routing::post('login', 'LoginController');
+Routing::post('register', 'RegisterController');
 
 
 
-# Uploads user avatar.
-Routing::post('avatar', DashboardController::class, 'upload_avatar');
-
-
-# Runs appropriate controller from ./controllers
-Routing::run($path, $method);
-
-
+Routing::run($action);

@@ -3,86 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./public/css/dashboard/dashboard.css">
-    <link rel="stylesheet" type="text/css" href="./public/icons/icons.css">
-
     <title>Freely</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,700&display=swap');
+
+        * {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            font-size: 20px;
+        }
+
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        body div {
+            margin: 3rem 0;
+
+            width: 50%;
+            min-width: max-content;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        #d2 {
+        }
+
+        #d1 * {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .Info {
+            width: min-content;
+        }
+
+        .Info * {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .Info p {
+            font-size: 2rem;
+            margin: 2rem 0;
+        }
+
+        .Frame {
+            border-radius: 50%;
+            overflow: hidden;
+
+            width: fit-content;
+            height: fit-content;
+
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .Portrait {
+            width: 15rem;
+            height: 15rem;
+        }
+
+        .Frame:hover .Portrait {
+            cursor: pointer;
+            filter: brightness(0.5);
+        }
+
+
+    </style>
+
 </head>
 <body>
 
-<nav>
-    <a href="/">
-        Go Shopping.
-    </a>
-</nav>
-<div class="Dashboard">
-
-    <div id="panel01" class="Dashboard-Panel">
-        <div id="portrait_frame" class="Portrait-Frame">
-            <label id="portrait_label_upload" for="portrait_input"></label>
-            <input id="portrait_input" type="file" accept="image/png, image/jpg">
+<div id="d1">
+    <div class="Info">
+        <div class="Frame">
+            <img class="Portrait" src="<?= $avatar ?>" alt="avatar">
         </div>
-
-        <?php ?>
-        <p><?= $name ?> <?= $surname ?> </p>
-        <?php ?>
-
-    </div>
-    <div id="panel02" class="Dashboard-Panel">
-
-        <ul>
-            <li>
-                <a href="/cart">
-                    <span class='cart'></span>
-                </a>
-            </li>
-            <li>
-                <a href="/settings">
-                    <span class='settings'></span>
-                </a>
-            </li>
-            <li>
-                <a href="#logout">
-                    <span class='logout'></span>
-                </a>
-            </li>
-            <li>
-                <a href="/upload">
-                    <span class='add'></span>
-                </a>
-            </li>
-        </ul>
-
-
+        <p><?= $name ?> <?= $surname ?></p>
     </div>
 </div>
-
-<script>
-
-
-    async function getAvatar() {
-        const response = await fetch('/avatar');
-        if (response.status === 404)
-            throw new Error();
-
-        return await response.text();
-    }
-
-    getAvatar()
-        .then(path => {
-            console.log(path)
-            const frame = document.getElementById('portrait_frame');
-            const img = document.createElement('img');
-            img.src = path;
-            frame.append(img);
-        })
-        .catch(error => {
-            console.log(error)
-        });
-
-
-</script>
-
+<div id="d2">
+    <a href="/">Shopping</a>
+    <a href="/upload">Upload</a>
+    <a href="/cart">Cart</a>
+    <a href="/logout">Logout</a>
+</div>
 
 </body>
 </html>

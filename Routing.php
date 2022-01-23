@@ -1,43 +1,37 @@
 <?php
 
-require './src/controllers/Authorization/LoginController.php';
-require './src/controllers/Authorization/RegisterController.php';
-require './src/controllers/DefaultController.php';
-require './src/controllers/DashboardController.php';
-require_once './src/controllers/AvatarController.php';
-require_once './src/controllers/ItemController.php';
-
-#TODO: Make Routing be less available for other classes and files!
-
+require 'src/controllers/ViewsController.php';
+require 'src/controllers/LoginController.php';
+require 'src/controllers/ItemController.php';
 
 class  Routing
 {
-    # Nobody should have permission to get into $routes variable! It is risky, and probability that error occurs highly rises.
-    private static $routes;
 
-    public static function get($endpoint, $controller, $action)
+    private static $routes = [];
+
+    public static function get($action, $controller)
     {
-        self::$routes['get'][$endpoint] = ['name' => $controller, 'action' => $action];
+        self::$routes['GET'][$action] = $controller;
     }
 
-    public static function post($endpoint, $controller, $action)
+    public static function post($action, $controller)
     {
-        self::$routes['post'][$endpoint] = ['name' => $controller, 'action' => $action];
+        self::$routes['POST'][$action] = $controller;
     }
 
-    public static function run($url, $method)
+
+    public static function run($action)
     {
 
-        $endpoint = explode("/", $url)[0];
+        $METHOD = $_SERVER['REQUEST_METHOD'];
+        if (!key_exists($action, self::$routes[$METHOD]))
+            die('');
 
-        if (!array_key_exists($endpoint, self::$routes[$method]))
-            die("Wrong url!");
-
-        $controller = self::$routes[$method][$endpoint];
-
-        $object = new $controller['name'];
-        $action = $controller['action'];
+        $controller = self::$routes[$METHOD][$action];
+        $object = new $controller;
         $object->$action();
 
+
     }
+
 }

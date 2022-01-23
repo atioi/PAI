@@ -42,7 +42,7 @@
 }
 
 
-.bulb {
+.Bulb {
     --bulb-size: 2rem;
     background: url('./svg/bulb.svg') no-repeat 50% 50%;
     background-size: var(--bulb-size) var(--bulb-size);

@@ -13,4 +13,9 @@ class Repository
     }
 
 
+    protected function prepare($query)
+    {
+        return $this->database->connect()->prepare($query);
+    }
+
 }

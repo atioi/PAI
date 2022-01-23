@@ -21,7 +21,7 @@
 <main>
 
     <h2>Sign In</h2>
-    <form class="Form" action="/login" method="POST">
+    <form class="Upload-Item-Form" action="/login" method="POST">
         <!--
             DONE: FIXME: All inputs should be required and appropriate type.
         -->
