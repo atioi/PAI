@@ -67,5 +67,9 @@ class ViewsController extends AppController
         $this->render('upload');
     }
 
+    public function register()
+    {
+        $this->render('register');
+    }
 
 }

@@ -4,51 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./public/css/login.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Freely</title>
 </head>
 <body>
 
-<nav>
-    <header>
 
-        <a href="/">
-            <h1 class="Header"> Freely</h1>
-        </a>
+<h1>LOGIN</h1>
 
-    </header>
-</nav>
+<form action="/login" method="POST">
 
-<main>
-
-    <h2>Sign In</h2>
-    <form class="Upload-Item-Form" action="/login" method="POST">
-        <!--
-            DONE: FIXME: All inputs should be required and appropriate type.
-        -->
-
-        <div>
-            <label class="Label" for="email"></label>
-            <input class="TextInput" name="email" id="email" type="text" placeholder="Email" required>
-        </div>
-
-
-        <div>
-            <label class="Label" for="password"></label>
-            <input class="TextInput" name="password" id="password" type="password" placeholder="Password" required>
-        </div>
-
-        <?php ?>
-        <p class="LoginInfoMessage"><?= $message ?> </p>
-        <?php ?>
-
-        <input class="Button" value="Sign In" type="submit">
-    </form>
-
+    <!-- Email field /-->
     <div>
-        or <a href="register">sign up</a>
+        <label for="email"></label>
+        <i class="material-icons" id="letter">mail_outline</i>
+        <input name="email" id="email" type="text" placeholder="Email" required>
     </div>
 
-</main>
+
+    <!-- Password field /-->
+    <div>
+        <label for="password"></label>
+        <i class="material-icons" id="lock">lock</i>
+        <input name="password" id="password" type="password" placeholder="Password" required>
+        <i class="material-icons" id="eye">visibility_off</i>
+    </div>
+
+    <!-- Submit button -->
+    <input class="Button" value="LOGIN" type="submit">
+
+</form>
+
+<p>or <a href="/register">create account</a></p>
+
+
+<script>
+
+    // Hide or display password during login operation.
+    const eye = document.getElementById('eye');
+    const password = document.getElementById('password');
+
+    eye.classList.add('invisible');
+
+    password.onkeyup = () => {
+        eye.classList.remove('invisible');
+    }
+
+    eye.onclick = () => {
+        eye.innerText = 'visibility' === eye.innerText ? 'visibility_off' : 'visibility';
+        const type = 'password' === password.getAttribute('type') ? 'text' : 'password';
+        password.setAttribute('type', type);
+    }
+
+</script>
+
 
 </body>
 </html>

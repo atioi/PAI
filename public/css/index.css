@@ -2,7 +2,7 @@
 
 @media only screen and (max-width: 500px ) {
     * {
-        font-size: 10px;
+        font-size: 30px;
     }
 }
 
@@ -38,6 +38,7 @@
 
 h1 a, h1 {
     font-size: 2.5rem;
+    font-weight: normal;
 }
 
 h2 a, h2 {
@@ -70,8 +71,7 @@ nav {
     align-items: center;
     justify-content: space-between;
 
-    border-bottom: solid var(--font-color) 0.01rem;
-
+    box-shadow: 1px 1px 0.5rem black;
 }
 
 
@@ -118,19 +118,26 @@ footer > div {
 /* || Main: */
 
 main {
-    padding: 4rem 4rem;
+    /*padding: 4rem 4rem;*/
     display: flex;
+    align-items: start;
+    justify-items: start;
+
+
     width: 100%;
     min-height: 38rem;
 }
 
 #items-container {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: start;
+
+    display: inline-flex;
+    flex-flow: row wrap;
 
 }
+
+
+
 
 .Waiting-Block {
     width: 100%;
@@ -182,61 +189,68 @@ main {
 
 }
 
-
-/* Items */
-
 .Item {
     width: 10rem;
     height: 15rem;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: end;
 
-    margin-right: 1rem;
-    margin-left: 1rem;
+    margin: 1rem 1rem;
 
-    border-radius: 2rem;
+    cursor: pointer;
 
-    color: white;
+    box-shadow: 2px 2px 0.3rem black;
 
-    position: relative;
     overflow: hidden;
 
-    box-shadow: 0 0 1px black;
-
-}
-
-.Photo {
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-}
-
-.Title, .Localization {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 
-    font-size: 0.7rem;
+    display: inline-grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto min-content;
+    grid-template-areas: "." "info";
+
+    background-color: rgba(128, 128, 128, 0.5);
+
 }
 
 
 .Info {
+    grid-area: info;
+    padding: 1rem 1rem;
+
     position: relative;
-    z-index: 1;
-    margin-bottom: 0;
-    background-color: rgba(105, 105, 105, 0.59);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    padding: 1rem;
+    z-index: 2;
 
 }
 
 
-.Item:hover {
-    filter: brightness(0.9);
-    cursor: pointer;
+.Item h3 {
+    color: white;
+    font-weight: normal;
+}
+
+.Distance {
+    color: white;
+    font-size: 0.6rem;
+}
+
+.Item img {
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: -1;
+}
+
+.Error-Image {
+
+    align-self: center;
+
+    width: 50%;
+    height: 50%;
+
+    position: absolute;
+    z-index: -1;
+
 }

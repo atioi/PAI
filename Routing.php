@@ -3,6 +3,7 @@
 require 'src/controllers/ViewsController.php';
 require 'src/controllers/LoginController.php';
 require 'src/controllers/ItemController.php';
+require 'src/controllers/RegisterController.php';
 
 class  Routing
 {

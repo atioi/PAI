@@ -18,9 +18,11 @@ Routing::get('login', 'ViewsController');
 Routing::get('dashboard', 'ViewsController');
 Routing::get('upload', 'ViewsController');
 Routing::get('cart', 'ViewsController');
+Routing::get('register', 'ViewsController');
 Routing::get('settings', 'ViewsController');
 Routing::get('logout', 'LoginController');
 Routing::get('items', 'ItemController');
+
 
 // Actions:
 Routing::post('login', 'LoginController');

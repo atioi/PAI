@@ -9,12 +9,6 @@
     <link rel="stylesheet" type="text/css" href="/public/css/index.css">
     <title>Freely</title>
 
-
-    <style>
-
-
-    </style>
-
 </head>
 <body>
 <nav class="Navigation">
@@ -27,7 +21,7 @@
     </header>
 
     <a id="dashboard_anch" class="Avatar" href="/dashboard">
-        <img id="avatar" src="<?= $avatar ?>" alt="avatar">
+        <img id="avatar" src="<?= $avatar ?>" srcset="/public/icons/user.svg" alt="avatar">
     </a>
 
 </nav>
@@ -70,8 +64,7 @@
     </div>
 </footer>
 
-<script src="/public/script/Item.js"></script>
-<script src="/public/script/fetch-items.js"></script>
+<script type="module" src="/public/script/index.js"></script>
 
 </body>
 </html>
